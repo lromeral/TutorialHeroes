@@ -15,7 +15,7 @@ export class HeroDetailComponent implements OnInit {
 
 
   constructor(
-    private heroService: HeroService, 
+    private heroService: HeroService,
     private location: Location,
     private route: ActivatedRoute
     ) { }
@@ -26,15 +26,23 @@ export class HeroDetailComponent implements OnInit {
 
     const id: string = this.route.snapshot.paramMap.get('id');
 
-    this.heroService.getHeroById(Number(id)).subscribe(data => this.hero=data);
+    this.heroService.getHeroById(Number(id)).subscribe(data => {
+      this.hero=data,
+    console.log(data)});
 
 
-  }   
+  }
 
   irAtras():void{
     this.location.back();
   }
 
+  save(): void{
+    this.heroService.updateHeroe(this.hero).subscribe(_ =>
+      this.irAtras()
+    );
   }
-  
+
+  }
+
 
