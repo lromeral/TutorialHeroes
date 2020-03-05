@@ -1,2 +1,8 @@
 <h1>{{title}}</h1>
-<app-heroes></app-heroes>
+<nav>
+    <a routerLink="/home" routerLinkActive="active">Inicio</a>
+    <a routerLink="/heroes" routerLinkActive="active">Heroes</a>
+    <a routerLink="/detalle" routerLinkActive="active">Detalle</a>
+  </nav>
+<router-outlet></router-outlet>
+<app-mensajes></app-mensajes>
